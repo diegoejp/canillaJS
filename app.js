@@ -1,19 +1,19 @@
 const fs = require('fs');
 
+const n = 3;
 console.clear();
 console.log('================');
-console.log('   Tabla del 5');
+console.log(`   Tabla del ${n}`);
 console.log('================');
 
-const n = 5;
 let salida ='';
 
 for(let i =1; i<=10; i++){
     salida += (`${n} x ${i} = ${n*i}\n`)
 }
-
-fs.writeFile('tabla-5.txt',salida, (err)=>{
+console.log(salida);
+fs.writeFile(`tabla-${n}.txt`,salida, (err)=>{
     if (err) throw(err);
 
-    console.log('Tabla creada');
+    console.log(`tabla-${n}.txt Creada`);
 })
