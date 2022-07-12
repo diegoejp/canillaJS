@@ -1,19 +1,26 @@
-const fs = require('fs');
+let salida= [];
+const generateTable = (base) => {
+    for (let i = 1; i <= 10; i++)
+    {
+        salida.push(`${base} x ${i} = ${base * i}`)
+    }
 
-const n = 3;
-console.clear();
-console.log('================');
-console.log(`   Tabla del ${n}`);
-console.log('================');
-
-let salida ='';
-
-for(let i =1; i<=10; i++){
-    salida += (`${n} x ${i} = ${n*i}\n`)
+    return salida
 }
-console.log(salida);
-fs.writeFile(`tabla-${n}.txt`,salida, (err)=>{
-    if (err) throw(err);
 
-    console.log(`tabla-${n}.txt Creada`);
-})
+const imprimir = (arr)=>{
+    for (i of arr){
+        console.log(i);
+    }
+}
+
+const btn = document.querySelector("#btn");
+const inputN = document.querySelector("#inputN");
+const inputS = document.querySelector("#inputS");
+
+    btn.addEventListener("click", function(){
+        let tabla = generateTable(inputN.value);
+        imprimir(tabla);
+        inputS.textContent = tabla;
+});
+    
